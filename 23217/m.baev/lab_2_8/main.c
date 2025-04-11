@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
-#include <clock.h>
+#include <time.h>
 
 #define num_steps 200000000
 int num_threads;
@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
     pi = pi * 4.0;
 
     clock_t finish_time = clock();
-    printf("pi done - %.15g | time - %ld\n", pi, finish_time);
+    printf("pi done - %.15g | time - %ld\n", pi, finish_time/CLOCKS_PER_SEC);
 
     return 0;
 }
