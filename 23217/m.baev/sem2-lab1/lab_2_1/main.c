@@ -22,12 +22,13 @@ int main() {
     return 1;  
   }
 
-  pthread_join(thread, NULL);
 
   for (int i = 0; i < 10; i++) {
     printf("Родительский поток: строка %d\n", i + 1);
     usleep(100000);
   }
+
+  pthread_join(thread, NULL);
 
   return 0;
 }
