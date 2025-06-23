@@ -19,16 +19,24 @@ void *thread_function(void *arg) {
     int thread = data->thread_id;
     double a = 0;
 
-    for (int i = num_steps / num_threads * thread; i < num_steps / num_threads * (thread + 1); i++) {
-        a += 1.0 / (i * 4.0 + 1.0);
-        a -= 1.0 / (i * 4.0 + 3.0);
+    for (int i = thread;; i += num_threads) {
+        data->sum += 1.0 / (i * 4.0 + 1.0);
+        data->sum -= 1.0 / (i * 4.0 + 3.0);
     }
 
-    data->sum = a;
     return NULL;
 }
 
+void handle_sigint(int sig) {
+
+    exit(0);
+}
+
 int main(int argc, char** argv) {
+
+    if (signal(SIGINT, handle_sigint) == SIG_ERR) {
+        return 1;
+    }
 
     num_threads = atoi(argv[1]);
     // scanf("%d", &num_threads);
@@ -45,8 +53,9 @@ int main(int argc, char** argv) {
     }
 
     double pi = 0;
+
     for (int i = 0; i < num_threads; i++) {
-        pthread_join(threads_list[i], NULL);
+        pthread_cancel(threads_list[i]);
         pi += thread_data[i].sum;
     }
 
