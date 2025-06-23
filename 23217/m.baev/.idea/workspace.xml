@@ -49,7 +49,6 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "sem2-lab1",
     "last_opened_file_path": "/Users/mikle/Developer/Projects/NSU/NSU-OS-2024/23217/m.baev",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,7 +81,7 @@
       <workItem from="1747980638896" duration="3565000" />
       <workItem from="1748060470256" duration="636000" />
       <workItem from="1748495194222" duration="8845000" />
-      <workItem from="1750701330438" duration="1522000" />
+      <workItem from="1750701330438" duration="2150000" />
     </task>
     <servers />
   </component>
